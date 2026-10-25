@@ -30,9 +30,9 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class BillingServiceImpl implements BillingService {
 
-	private final StockRepository stockRepo;
-	private final BillRepository billRepo;
-	private final SaleRepository saleRepo;
+	private final StockRepository stockRepo = null;
+	private final BillRepository billRepo = null;
+	private final SaleRepository saleRepo = null;
 
 	@Override
 	@Transactional
