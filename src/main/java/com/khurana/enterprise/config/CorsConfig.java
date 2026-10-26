@@ -10,9 +10,6 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.Arrays;
-import java.util.Collections;
-
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 
@@ -23,7 +20,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD")
                 .allowedHeaders("*")
                 .exposedHeaders("*")
-                .allowCredentials(true)
+                .allowCredentials(false)
                 .maxAge(3600);
     }
 
@@ -31,11 +28,10 @@ public class CorsConfig implements WebMvcConfigurer {
     public FilterRegistrationBean<CorsFilter> customCorsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
         config.addAllowedOriginPattern("*");
-        config.setAllowedHeaders(Collections.singletonList("*"));
-        config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH", "HEAD"));
-        config.setExposedHeaders(Collections.singletonList("*"));
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
         config.setMaxAge(3600L);
         source.registerCorsConfiguration("/**", config);
 

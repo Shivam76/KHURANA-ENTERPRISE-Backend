@@ -14,7 +14,7 @@ import com.khurana.enterprise.service.SalesService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(originPatterns = "*")
 @RestController
 @RequestMapping("/sales")
 @RequiredArgsConstructor
